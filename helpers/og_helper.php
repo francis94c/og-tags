@@ -1,6 +1,33 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+if (!function_exists('og_read_config')) {
+  /**
+   * [og_read_config description]
+   * @param  [type] $config [description]
+   * @return [type]         [description]
+   */
+  function og_read_config($config, $echo=false) {
+    $ci =& get_instance();
+    $ci->config->load($config, true);
+    if ($ci->config->item($config) == null) return "";
+    $og_vars = array_filter($ci->config->item($config), function ($value, $key) {
+      return preg_match("/^og_/", $key, $config);
+    }, ARRAY_FILTER_USE_BOTH);
+    if (!is_array($og_vars) || count($og_vars) == 0) return "";
+    $og_tags = "";
+    foreach ($og_vars as $key => $value) {
+      if ($echo) {
+        echo og(substr($key, 3), $value);
+      } else {
+        $og_tags .= og(substr($key, 3), $value);
+      }
+    }
+    if ($echo) return;
+    return $og_tags;
+  }
+}
+
 if (!function_exists('og')) {
   /**
    * [og description]

@@ -23,7 +23,7 @@ $this->load->splint("francis94c/og-tags", "%og"); // Specific Loading
 
 ---
 
-### Helper Available functions ###
+### Helper Functions ###
 
 #### Universal Function: `og($name, $content)` ####
 

@@ -110,7 +110,7 @@ if (!function_exists('og_image_size')) {
    */
   function og_image_size($width, $height) {
     return is_int($width) && is_int($height) ? "<meta property=\"og:image:width\" content=\"$width\" />" .
-    PHP_EOL . "<meta property=\"og:image:height\" content=\"$height\" />" : "";
+    PHP_EOL . "  <meta property=\"og:image:height\" content=\"$height\" />" : "";
   }
 }
 
@@ -131,7 +131,7 @@ if (!function_exists('og_parse_image')) {
       $image_size = getimagesize($image);
       if ($image_size && is_int($image_size[0])) {
         return "<meta property=\"og:image:width\" content=\"$image_size[0]\" />" .
-        PHP_EOL . "<meta property=\"og:image:height\" content=\"$image_size[1]\" />"
+        PHP_EOL . "  <meta property=\"og:image:height\" content=\"$image_size[1]\" />"
         . PHP_EOL;
       }
     }

@@ -13,7 +13,7 @@ splint install francis94c/og-tags
 
 ### Usage ###
 
-Package supports [Descriptor Auto-loading](http://localhost/splint.cynobit.com/wiki/developer/descriptor_autoloading)
+Package supports [Descriptor Auto-loading](https://splint.cynobit.com/wiki/developer/descriptor_autoloading)
 
 ```php
 $this->load->package("francis94c/og-tags"); // Descriptor Auto-load.

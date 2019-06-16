@@ -171,4 +171,15 @@ if (!function_exists('og_audio')) {
     return "<meta property=\"og:audio\" content=\"$url\" />" . PHP_EOL;
   }
 }
+
+if (!function_exists('og_locale')) {
+  /**
+   * [og_locale description]
+   * @param  [type] $locale [description]
+   * @return [type]         [description]
+   */
+  function og_locale($locale) {
+    return "<meta property=\"og:locale\" content=\"$locale\" />" . PHP_EOL;
+  }
+}
 ?>

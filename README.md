@@ -20,4 +20,24 @@ $this->load->package("francis94c/og-tags"); // Descriptor Auto-load.
 
 $this->load->splint("francis94c/og-tags", "%og"); // Specific Loading
 ```
-When successfully loaded, the following functions are available to you.
+
+---
+
+### Helper Available functions ###
+
+#### Universal Function: `og($name, $content)` ####
+
+```php
+echo og("image", "http://example.com/logo.png");
+// Returns <meta property="og:image" content="http://example.com/logo.png"/>
+```
+#### `og_image($url)` ####
+```php
+echo og_image("http://example.com/logo.png");
+// Returns <meta property="og:image" content="http://example.com/logo.png"/>
+```
+#### `og_title($title)` ####
+```php
+echo og_title("A Title");
+// Returns <meta property="og:title" content="A Title"/>
+```

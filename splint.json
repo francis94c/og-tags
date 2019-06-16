@@ -1,0 +1,19 @@
+{
+  "name": "francis94c/og-tags",
+  "type": "helper",
+  "description": "A Code Igniter library to easily generate and echo Open Graph Tags and other Social Meta Tags (Twitter, Facebook, etc.) in the header section of a HTML page.",
+  "tags": ["og", "open", "graph", "facebook", "twitter"],
+  "page": "https://github.com/francis94c/og-tags",
+  "authors": [
+    {
+      "name": "Francis Ilechukwu",
+      "email": "francis94c@gmail.com",
+      "page": "about.me/francisilechukwu",
+      "role": "Developer"
+    }
+  ],
+  "php": ">=5.3.0",
+  "autoload": {
+    "helpers" : ["og"]
+  }
+}

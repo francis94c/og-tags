@@ -1,4 +1,4 @@
-![License MIT](https://img.shields.io/github/license/francis94c/og-tags.svg) ![Splint Identifier](https://splint.cynobit.com/shields/iconIdentifier/A3RT16543N) ![Splint Version](https://img.shields.io/badge/dynamic/json.svg?color=brightgreen&label=[S]%20version&query=%24.version&url=https%3A%2F%2Fsplint.cynobit.com%2Fshields%2Fversion%2FA3RT16543N) ![Latest Release](https://img.shields.io/github/release/francis94c/og-tags.svg) ![Commits](https://img.shields.io/github/last-commit/francis94c/og-tags.svg)
+![License MIT](https://img.shields.io/github/license/francis94c/og-tags.svg) ![Splint Identifier](https://splint.cynobit.com/shields/iconIdentifier/A3RT16543N) ![Splint Version](http://localhost/splint.cynobit.com/shields/iconVersion/A3RT16543N) ![Latest Release](https://img.shields.io/github/release/francis94c/og-tags.svg) ![Commits](https://img.shields.io/github/last-commit/francis94c/og-tags.svg)
 
 [![Open Graph Protocol](http://ogp.me/logo.png)](http://ogp.me/)
 

@@ -25,6 +25,8 @@ $this->load->splint("francis94c/og-tags", "%og"); // Specific Loading
 
 ### Helper Functions ###
 
+---
+
 #### Universal Function: `og($name, $content)` ####
 
 ```php
@@ -40,4 +42,16 @@ echo og_image("http://example.com/logo.png");
 ```php
 echo og_title("A Title");
 // Returns <meta property="og:title" content="A Title"/>
+```
+#### `og_image_width($width)` ####
+Will Return `""` if `int` is not supplied.
+```php
+echo og_image_width(400);
+// Returns <meta property="og:image:width" content="400"/>
+```
+#### `og_image_height($height)` ####
+Will Return `""` if `int` is not supplied.
+```php
+echo og_image_height(200);
+// Returns <meta property="og:image:height" content="200"/>
 ```

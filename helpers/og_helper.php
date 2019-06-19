@@ -12,11 +12,13 @@ if (!function_exists('og_read_config')) {
     $ci->config->load($config, true);
     if ($ci->config->item($config) == null) return "";
     $og_vars = array_filter($ci->config->item($config), function ($value, $key) {
+      if (!is_scalar($key)) return false;
       return preg_match("/^og_/", $key, $config);
     }, ARRAY_FILTER_USE_BOTH);
     if (!is_array($og_vars) || count($og_vars) == 0) return "";
     $og_tags = "";
     foreach ($og_vars as $key => $value) {
+      if (!is_scalar($value)) continue;
       if ($echo) {
         echo og(substr($key, 3), $value);
       } else {
@@ -36,6 +38,7 @@ if (!function_exists('og')) {
    * @return [type]          [description]
    */
   function og($name, $content) {
+    if (!is_scalar($name) || !is_scalar($content)) return "";
     return "<meta property=\"og:$name\" content=\"$content\" />" . PHP_EOL;
   }
 }
@@ -47,6 +50,7 @@ if (!function_exists('og_title')) {
    * @return [type]        [description]
    */
   function og_title($title) {
+    if (!is_scalar($title)) return "";
     return "<meta property=\"og:title\" content=\"$title\" />" . PHP_EOL;
   }
 }
@@ -58,6 +62,7 @@ if (!function_exists('og_type')) {
    * @return [type]       [description]
    */
   function og_type($type) {
+    if (!is_scalar($type)) return "";
     return "<meta property=\"og:type\" content=\"$type\" />" . PHP_EOL;
   }
 }
@@ -69,6 +74,7 @@ if (!function_exists('og_description')) {
    * @return [type]              [description]
    */
   function og_description($description) {
+    if (!is_scalar($description)) return "";
     return "<meta property=\"og:description\" content=\"$description\" />" . PHP_EOL;
   }
 }
@@ -80,6 +86,7 @@ if (!function_exists('og_url')) {
    * @return [type]      [description]
    */
   function og_url($url) {
+    if (!is_scalar($url)) return "";
     return "<meta property=\"og:url\" content=\"$url\" />" . PHP_EOL;
   }
 }
@@ -91,6 +98,7 @@ if (!function_exists('og_site_name')) {
    * @return [type]            [description]
    */
   function og_site_name($site_name) {
+    if (!is_scalar($site_name)) return "";
     return "<meta property=\"og:site_name\" content=\"$site_name\" />" . PHP_EOL;
   }
 }
@@ -102,6 +110,7 @@ if (!function_exists('og_image')) {
    * @return [type]      [description]
    */
   function og_image($url) {
+    if (!is_scalar($url)) return "";
     return "<meta property=\"og:image\" content=\"$url\" />" . PHP_EOL;
   }
 }
@@ -143,6 +152,7 @@ if (!function_exists('og_image_size')) {
 
 if (!function_exists('og_determiner')) {
   function og_image_secure_url($url) {
+    if (!is_scalar($url)) return "";
     return "<meta property=\"og:image:secure_url\" content=\"$url\" />" . PHP_EOL;
   }
 }
@@ -154,6 +164,7 @@ if (!function_exists('og_parse_image')) {
    * @return [type]        [description]
    */
   function og_parse_image($image) {
+    if (!is_scalar($image)) return "";
     if (is_int(exif_imagetype($image))) {
       $image_size = getimagesize($image);
       if ($image_size && is_int($image_size[0])) {
@@ -173,6 +184,7 @@ if (!function_exists('og_image_secure_url')) {
    * @return [type]      [description]
    */
   function og_image_secure_url($url) {
+    if (!is_scalar($url)) return "";
     return "<meta property=\"og:image:secure_url\" content=\"$url\" />" . PHP_EOL;
   }
 }
@@ -184,6 +196,7 @@ if (!function_exists('og_determiner')) {
    * @return [type]             [description]
    */
   function og_determiner($determiner) {
+    if (!is_scalar($determiner)) return "";
     return "<meta property=\"og:determiner\" content=\"$determiner\" />" . PHP_EOL;
   }
 }
@@ -195,6 +208,7 @@ if (!function_exists('og_audio')) {
    * @return [type]      [description]
    */
   function og_audio($url) {
+    if (!is_scalar($url)) return "";
     return "<meta property=\"og:audio\" content=\"$url\" />" . PHP_EOL;
   }
 }
@@ -206,6 +220,7 @@ if (!function_exists('og_locale')) {
    * @return [type]         [description]
    */
   function og_locale($locale) {
+    if (!is_scalar($locale)) return "";
     return "<meta property=\"og:locale\" content=\"$locale\" />" . PHP_EOL;
   }
 }

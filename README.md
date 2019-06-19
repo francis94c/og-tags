@@ -1,4 +1,4 @@
-![License MIT](https://img.shields.io/github/license/francis94c/og-tags.svg) ![Splint Identifier](https://splint.cynobit.com/shields/iconIdentifier/A3RT16543N) ![Splint Version](http://localhost/splint.cynobit.com/shields/iconVersion/A3RT16543N) ![Latest Release](https://img.shields.io/github/release/francis94c/og-tags.svg) ![Commits](https://img.shields.io/github/last-commit/francis94c/og-tags.svg)
+![License MIT](https://img.shields.io/github/license/francis94c/og-tags.svg) ![Splint Identifier](https://splint.cynobit.com/shields/iconIdentifier/A3RT16543N) ![Splint Version](https://splint.cynobit.com/shields/iconVersion/A3RT16543N) ![Latest Release](https://img.shields.io/github/release/francis94c/og-tags.svg) ![Commits](https://img.shields.io/github/last-commit/francis94c/og-tags.svg)
 
 [![Open Graph Protocol](http://ogp.me/logo.png)](http://ogp.me/)
 
@@ -28,11 +28,37 @@ $this->load->splint("francis94c/og-tags", "%og"); // Specific Loading
 ---
 
 #### Universal Function: `og($name, $content)` ####
-
+`$name`: (`string`) : Open Graph Tag Name
+`$content`: (`string`) : Open Graph Tag Content
 ```php
 echo og("image", "http://example.com/logo.png");
 // Returns <meta property="og:image" content="http://example.com/logo.png"/>
 ```
+#### Read Values from a Config File : `og_read_config($config_file_name, [$echo=false])` ####
+`$config_file_name`: (`string`) : The name of the config file you want it to load values from. This means you must reate a seperate php file in the `application/config` folder to hold og tag information.
+`[$echo]`: (`boolean`) : Optional, Whether to output the tags straight to the browser or return them as string. Default to `true`.
+
+```php
+echo og_read_config("my_og_tags");
+// Returns <meta property="og:image" content="http://example.com/logo.png"/>
+```
+
+The config file should contain something like the below.
+
+```php
+$config["og_title"]            = "A Title";
+$config["og_site_name"]        = "IMDb";
+$config["og_audio"]            = "http://example.com/bond/theme.mp3";
+$config["og_description"]      = "Sean Connery found fame and fortune as the suave, sophisticated British agent, James Bond.";
+$config["og_determiner"]       = "the";
+$config["og_locale"]           = "en_GB";
+$config["og_locale:alternate"] = "fr_FR";
+$config["og_image"]            = "http://example.com/rock.jpg";
+$config["og_image:width"]      = "300";
+$config["og_image:height"]     = "300";
+```
+All key names must be prefixed with 'og_'. Data type check doesn't apply when using this method.
+
 #### `og_image($url)` ####
 ```php
 echo og_image("http://example.com/logo.png");
@@ -54,4 +80,10 @@ Will Return `""` if `int` is not supplied.
 ```php
 echo og_image_height(200);
 // Returns <meta property="og:image:height" content="200"/>
+```
+#### `og_image_size($width, $height)` ####
+Will return only valid values (`int`) of the two parameters `$width` and `$height`.
+```php
+echo og_image_size(500, 200);
+// Returns <meta property="og:image:width" content="500"/> \n <meta property="og:image:height" content="200"/>
 ```

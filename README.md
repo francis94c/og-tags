@@ -57,7 +57,7 @@ $config["og_image"]            = "http://example.com/rock.jpg";
 $config["og_image:width"]      = "300";
 $config["og_image:height"]     = "300";
 ```
-All key names must be prefixed with 'og_'. Data type check doesn't apply when using this method.
+All key names must be prefixed with 'og_'. Only scalar data type check applies to all elements here.
 
 #### `og_image($url)` ####
 ```php

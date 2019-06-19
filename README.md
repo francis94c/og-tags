@@ -36,11 +36,15 @@ echo og("image", "http://example.com/logo.png");
 ```
 #### Read Values from a Config File : `og_read_config($config_file_name, [$echo=false])` ####
 `$config_file_name`: (`string`) : The name of the config file you want it to load values from. This means you must reate a seperate php file in the `application/config` folder to hold og tag information.
-`[$echo]`: (`boolean`) : Optional, Whether to output the tags straight to the browser or return them as string. Default to `true`.
+`[$echo]`: (`boolean`) : Optional, Whether to output the tags straight to the browser or return them as string. Default to `false`.
 
 ```php
 echo og_read_config("my_og_tags");
-// Returns <meta property="og:image" content="http://example.com/logo.png"/>
+// Depending on the contents of your config file.
+// Returns <meta property="og:title" content="A Title"/> \n <meta property="og:image" content="http://example.com/logo.png"/> \n ......
+
+// Or
+og_read_config("my_og_tags", true); // to echo directly to the browser.
 ```
 
 The config file should contain something like the below.

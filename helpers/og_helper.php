@@ -1,6 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * CONSTANTS
+ */
+defined('TWITTER_CARD_SUMMARY')       OR define('TWITTER_CARD_SUMMARY', "summary");
+defined('TWITTER_CARD_SUMMARY_LARGE') OR define('TWITTER_CARD_LARGE', "summary_large_image");
+defined('TWITTER_CARD_APP')           OR define('TWITTER_CARD_APP', "app");
+defined('TWITTER_CARD_PLAYER')        OR define('TWITTER_CARD_PLAYER', "player");
+
 if (!function_exists('og_read_config')) {
   /**
    * [og_read_config description]
@@ -222,6 +230,42 @@ if (!function_exists('og_locale')) {
   function og_locale($locale) {
     if (!is_scalar($locale)) return "";
     return "<meta property=\"og:locale\" content=\"$locale\" />" . PHP_EOL;
+  }
+}
+
+if (!function_exists('og_twitter_card')) {
+  /**
+   * [og_twitter_card description]
+   * @param  [type] $card [description]
+   * @return [type]       [description]
+   */
+  function og_twitter_card($card) {
+    if (!is_scalar($card)) return "";
+    return "<meta name=\"twitter:card\" content=\"$card\"></meta>" . PHP_EOL;
+  }
+}
+
+if (!function_exists('og_twitter_site')) {
+  /**
+   * [og_twitter_site description]
+   * @param  [type] $site [description]
+   * @return [type]       [description]
+   */
+  function og_twitter_site($site) {
+    if (!is_scalar($site)) return "";
+    return "<meta name=\"twitter:site\" content=\"$site\"></meta>" . PHP_EOL;
+  }
+}
+
+if (!function_exists('og_twitter_creator')) {
+  /**
+   * [og_twitter_creator description]
+   * @param  [type] $creator [description]
+   * @return [type]          [description]
+   */
+  function og_twitter_creator($creator) {
+    if (!is_scalar($creator)) return "";
+    return "<meta name=\"twitter:creator\" content=\"$creator\"></meta>" . PHP_EOL;
   }
 }
 ?>

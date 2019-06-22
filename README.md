@@ -28,8 +28,8 @@ $this->load->splint("francis94c/og-tags", "%og"); // Specific Loading
 ---
 
 #### Universal Function: `og($name, $content)` ####
-`$name`: (`string`) : Open Graph Tag Name
-`$content`: (`string`) : Open Graph Tag Content
+`$name`: (`string`) : Open Graph Tag Name.
+`$content`: (`string`) : Open Graph Tag Content.
 ```php
 echo og("image", "http://example.com/logo.png");
 // Returns <meta property="og:image" content="http://example.com/logo.png"/>
@@ -64,30 +64,49 @@ $config["og_image:height"]     = "300";
 All key names must be prefixed with 'og_'. Only scalar data type check applies to all elements here.
 
 #### `og_image($url)` ####
+`$url`: (`string`) : Page Canonical URL.
 ```php
 echo og_image("http://example.com/logo.png");
 // Returns <meta property="og:image" content="http://example.com/logo.png"/>
 ```
 #### `og_title($title)` ####
+`$title`: (`string`) : Page title.
 ```php
 echo og_title("A Title");
 // Returns <meta property="og:title" content="A Title"/>
 ```
 #### `og_image_width($width)` ####
+`$width`: (`int`) : Image Width.
 Will Return `""` if `int` is not supplied.
 ```php
 echo og_image_width(400);
 // Returns <meta property="og:image:width" content="400"/>
 ```
 #### `og_image_height($height)` ####
+`$height`: (`int`) : Image Height.
 Will Return `""` if `int` is not supplied.
 ```php
 echo og_image_height(200);
 // Returns <meta property="og:image:height" content="200"/>
 ```
 #### `og_image_size($width, $height)` ####
+`$width`: (`int`) : Image Width.
+`$height`: (`int`) : Image Height.
 Will return only valid values (`int`) of the two parameters `$width` and `$height`.
 ```php
 echo og_image_size(500, 200);
+// Returns <meta property="og:image:width" content="500"/> \n <meta property="og:image:height" content="200"/>
+```
+#### `og_image_secure_url($url)` ####
+`$url`: (`string`) : Image URL on SSL.
+```php
+echo og_image_secure_url("https://example.com/logo.png");
+// Returns <meta property="og:image:secure_url" content="https://example.com/logo.png"/>
+```
+#### `og_parse_image($image)` ####
+`$image`: (`string`) : Local file path to a valid image.
+This function will return only valid integer values read from a valid image file.
+```php
+echo og_parse_image("/var/www/logo.png");
 // Returns <meta property="og:image:width" content="500"/> \n <meta property="og:image:height" content="200"/>
 ```

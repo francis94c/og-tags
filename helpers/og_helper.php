@@ -59,7 +59,7 @@ if (!function_exists('og_title')) {
    */
   function og_title($title) {
     if (!is_scalar($title)) return "";
-    return "<meta property=\"og:title\" content=\"$title\" />" . PHP_EOL;
+    return "<meta name=\"title\" property=\"og:title\" content=\"$title\" />" . PHP_EOL;
   }
 }
 
